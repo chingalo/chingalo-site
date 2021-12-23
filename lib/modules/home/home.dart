@@ -2,6 +2,7 @@ import 'package:chingalo_site/app_state/app_theme_state/app_theme_state.dart';
 import 'package:chingalo_site/core/components/app_bar_container.dart';
 import 'package:chingalo_site/core/constants/app_contant.dart';
 import 'package:chingalo_site/core/services/theme_service.dart';
+import 'package:chingalo_site/modules/home/components/profile_picture.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +11,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    double height = 0.15 * size.height;
     return Consumer<AppThemeState>(builder: (context, appThemeState, child) {
       String currentTheme = appThemeState.currentTheme;
       Color textColor = currentTheme == ThemeServices.darkTheme
@@ -22,13 +25,14 @@ class Home extends StatelessWidget {
             title: '',
           ),
         ),
-        body: Center(
-          child: Text(
-            "Welcome to joseph chingalo",
-            style: const TextStyle().copyWith(
-              color: textColor,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            ProfilePicture(
+              height: height,
             ),
-          ),
+          ],
         ),
       );
     });
