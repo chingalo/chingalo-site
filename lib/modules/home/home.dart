@@ -5,6 +5,7 @@ import 'package:chingalo_site/core/services/theme_service.dart';
 import 'package:chingalo_site/modules/home/components/home_content.dart';
 import 'package:chingalo_site/modules/home/components/home_intro.dart';
 import 'package:chingalo_site/modules/home/components/profile_picture.dart';
+import 'package:chingalo_site/modules/home/components/social_media_content.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double height = 0.24 * size.height;
+    double height = 0.3 * size.height;
     return Consumer<AppThemeState>(builder: (context, appThemeState, child) {
       String currentTheme = appThemeState.currentTheme;
       Color textColor = currentTheme == ThemeServices.darkTheme
@@ -41,6 +42,7 @@ class Home extends StatelessWidget {
                 children: [
                   Expanded(
                     child: HomeIntro(
+                      height: height,
                       textColor: textColor,
                     ),
                   ),
@@ -55,6 +57,9 @@ class Home extends StatelessWidget {
               )
             ],
           ),
+        ),
+        bottomNavigationBar: SocialMediaContent(
+          textColor: textColor,
         ),
       );
     });
