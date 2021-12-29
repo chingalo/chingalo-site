@@ -15,7 +15,7 @@ class HomeContent extends StatelessWidget {
         top: 10.0,
       ),
       child: Text(
-        "contents",
+        "",
         style: const TextStyle().copyWith(
           color: textColor,
         ),

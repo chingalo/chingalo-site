@@ -18,7 +18,7 @@ class ProfilePicture extends StatelessWidget {
         vertical: 10.0,
       ),
       padding: const EdgeInsets.symmetric(
-        horizontal: 10.0,
+        horizontal: 20.0,
       ),
       child: ClipRRect(
         clipBehavior: Clip.hardEdge,

@@ -28,6 +28,9 @@ class HomeIntro extends StatelessWidget {
             minHeight: height,
             minWidth: double.infinity,
           ),
+          margin: const EdgeInsets.symmetric(
+            horizontal: 10.0,
+          ),
           padding: const EdgeInsets.all(10.0),
           child: Text(
             homeInto,
