@@ -1,6 +1,7 @@
 import 'package:chingalo_site/models/social_media.dart';
 import 'package:chingalo_site/modules/home/components/social_media_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaContent extends StatelessWidget {
   const SocialMediaContent({
@@ -10,8 +11,10 @@ class SocialMediaContent extends StatelessWidget {
 
   final Color textColor;
 
-  onTap(SocialMedia socialMedia) {
-    print(socialMedia);
+  onTap(SocialMedia socialMedia) async {
+    if (await canLaunch(socialMedia.url)) {
+      launch(socialMedia.url);
+    }
   }
 
   @override
