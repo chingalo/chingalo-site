@@ -16,7 +16,7 @@ class MaterialCard extends StatelessWidget {
       elevation: elevation,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(12.0),
+          Radius.circular(10.0),
         ),
       ),
       child: body,

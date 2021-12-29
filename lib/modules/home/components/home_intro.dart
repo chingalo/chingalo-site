@@ -1,3 +1,4 @@
+import 'package:chingalo_site/core/components/material_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeIntro extends StatelessWidget {
@@ -11,11 +12,21 @@ class HomeIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(20.0),
-      child: Text(
-        'Text',
-        style: const TextStyle().copyWith(
-          color: textColor,
+      alignment: Alignment.topCenter,
+      margin: const EdgeInsets.symmetric(
+        vertical: 10.0,
+      ),
+      child: MaterialCard(
+        elevation: 0.2,
+        body: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            'Hello, Joseph Chingalo',
+            style: const TextStyle().copyWith(
+              color: textColor,
+            ),
+          ),
         ),
       ),
     );
