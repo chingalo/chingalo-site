@@ -24,7 +24,7 @@ class AppBarContainer extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  appThemeState.currentTheme,
+                  title,
                   style: const TextStyle().copyWith(
                     fontSize: 16.0,
                   ),
