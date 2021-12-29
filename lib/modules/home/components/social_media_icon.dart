@@ -6,10 +6,12 @@ class SocialMediaIcon extends StatelessWidget {
   const SocialMediaIcon({
     Key? key,
     required this.socialMedia,
+    required this.textColor,
     required this.onTap,
   }) : super(key: key);
 
   final SocialMedia socialMedia;
+  final Color textColor;
   final VoidCallback onTap;
 
   @override
@@ -22,6 +24,7 @@ class SocialMediaIcon extends StatelessWidget {
         ),
         child: SvgPicture.asset(
           socialMedia.icon,
+          color: textColor,
         ),
       ),
     );

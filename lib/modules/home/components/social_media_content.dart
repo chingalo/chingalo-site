@@ -31,6 +31,7 @@ class SocialMediaContent extends StatelessWidget {
             .map(
               (SocialMedia socialMedia) => SocialMediaIcon(
                 socialMedia: socialMedia,
+                textColor: textColor,
                 onTap: () => onTap(socialMedia),
               ),
             )
