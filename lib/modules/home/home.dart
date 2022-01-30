@@ -2,6 +2,7 @@ import 'package:chingalo_site/app_state/app_theme_state/app_theme_state.dart';
 import 'package:chingalo_site/core/components/app_bar_container.dart';
 import 'package:chingalo_site/core/constants/app_contant.dart';
 import 'package:chingalo_site/core/services/theme_service.dart';
+import 'package:chingalo_site/core/utils/app_util.dart';
 import 'package:chingalo_site/modules/home/components/home_content.dart';
 import 'package:chingalo_site/modules/home/components/home_intro.dart';
 import 'package:chingalo_site/modules/home/components/profile_picture.dart';
@@ -11,6 +12,40 @@ import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
+
+  Row _getDesktopLayout(double height, Color textColor, Color backgroundColor) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: HomeIntro(
+            height: height,
+            textColor: textColor,
+          ),
+        ),
+        ProfilePicture(
+          height: height,
+          backgroundColor: backgroundColor,
+        ),
+      ],
+    );
+  }
+
+  Column _getMobileLayout(
+      double height, Color backgroundColor, Color textColor) {
+    return Column(
+      children: [
+        ProfilePicture(
+          height: height,
+          backgroundColor: backgroundColor,
+        ),
+        HomeIntro(
+          height: height,
+          textColor: textColor,
+        )
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,31 +66,21 @@ class Home extends StatelessWidget {
             title: 'Chingalo',
           ),
         ),
-        body: Container(
-          margin: const EdgeInsets.symmetric(
-            horizontal: 10.0,
-          ),
-          child: Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: HomeIntro(
-                      height: height,
-                      textColor: textColor,
-                    ),
-                  ),
-                  ProfilePicture(
-                    height: height,
-                    backgroundColor: backgroundColor,
-                  ),
-                ],
-              ),
-              HomeContent(
-                textColor: textColor,
-              )
-            ],
+        body: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.symmetric(
+              horizontal: 10.0,
+            ),
+            child: Column(
+              children: [
+                AppUtil.userMobileLayout(context)
+                    ? _getMobileLayout(height, backgroundColor, textColor)
+                    : _getDesktopLayout(height, textColor, backgroundColor),
+                HomeContent(
+                  textColor: textColor,
+                ),
+              ],
+            ),
           ),
         ),
         bottomNavigationBar: SocialMediaContent(
