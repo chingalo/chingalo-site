@@ -24,9 +24,8 @@ class SocialMediaContent extends StatelessWidget {
         horizontal: 10.0,
         vertical: 15.0,
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Wrap(
+        alignment: WrapAlignment.center,
         children: SocialMedia.getAllSocialMedia()
             .map(
               (SocialMedia socialMedia) => SocialMediaIcon(
